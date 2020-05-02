@@ -5,8 +5,8 @@
  *
  * font: see http://freedesktop.org/software/fontconfig/fontconfig-user.html
  */
-static char *font = "Inconsolata:pixelsize=16:antialias=true:autohint=true";
-static int borderpx = 20;
+static char *font = "Liberation Mono:pixelsize=12:antialias=true:autohint=true";
+static int borderpx = 2;
 
 /*
  * What program is execed by st depends of these precedence rules:
@@ -82,7 +82,7 @@ char *termname = "st-256color";
  *
  *	stty tabs
  */
-unsigned int tabspaces = 4;
+unsigned int tabspaces = 8;
 
 /* bg opacity */
 float alpha = 0.8;
@@ -93,7 +93,7 @@ static const char *colorname[] = {
 	"black",
 	"red3",
 	"green3",
-	"orange",
+	"yellow3",
 	"blue2",
 	"magenta3",
 	"cyan3",
@@ -101,8 +101,8 @@ static const char *colorname[] = {
 
 	/* 8 bright colors */
 	"gray50",
-	"LightCoral",
-	"#5eff84",
+	"red",
+	"green",
 	"yellow",
 	"#5c5cff",
 	"magenta",
@@ -184,16 +184,14 @@ static Shortcut shortcuts[] = {
 	{ ControlMask,          XK_Print,       toggleprinter,  {.i =  0} },
 	{ ShiftMask,            XK_Print,       printscreen,    {.i =  0} },
 	{ XK_ANY_MOD,           XK_Print,       printsel,       {.i =  0} },
-	{ Mod4Mask,             XK_equal,       zoom,           {.f = +1} },
-	{ Mod4Mask,             XK_minus,       zoom,           {.f = -1} },
+	{ TERMMOD,              XK_Prior,       zoom,           {.f = +1} },
+	{ TERMMOD,              XK_Next,        zoom,           {.f = -1} },
 	{ TERMMOD,              XK_Home,        zoomreset,      {.f =  0} },
 	{ TERMMOD,              XK_C,           clipcopy,       {.i =  0} },
 	{ TERMMOD,              XK_V,           clippaste,      {.i =  0} },
 	{ TERMMOD,              XK_Y,           selpaste,       {.i =  0} },
 	{ ShiftMask,            XK_Insert,      selpaste,       {.i =  0} },
 	{ TERMMOD,              XK_Num_Lock,    numlock,        {.i =  0} },
-	{ ShiftMask,            XK_Up,          kscrollup,      {.i = -1} },
-	{ ShiftMask,            XK_Down,        kscrolldown,    {.i = -1} },
 };
 
 /*
